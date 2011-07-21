@@ -1,0 +1,213 @@
+# 可视行(visual line)
+   1. 启动和退出: V
+
+   2. 整体缩进/退回几行代码：
+
+	首先用可视行模式选中这几行,然后 `>/< + shift'
+   3.安装vim插件的实质，就是将插件复制到～条件下的.vim中
+# markdown
+
+    http://happypeter.github.com/LGCB/book/toy_markdown.html
+
+    1.download and install markdown
+
+      sudo apt-get install markdown
+
+    2.creat file
+
+      vim file.md  
+
+    3.change .md to .html
+
+      markdown file.md > file.html
+
+    4.open .html directory
+
+      firefox file.html
+
+
+# html study    //html为网页制作环境
+
+http://www.w3schools.com/
+# git
+  ## install:
+
+    sudo apt-get install ‘git-core’
+   
+    sudo apt-get install ’tig‘  //View to renew the content
+
+    git pull    //Update
+  ##git basics
+
+    1. first create a dir
+
+        mkdir ggg
+
+    2.now you MUST cd to this dir
+
+        cd ggg
+
+    3. initializing this git dir
+
+      git init
+
+    //now you can see a `.git` in this dir
+
+        ls -a
+
+    4. now create a file
+
+        vim hello.c
+
+    5. let git knows about this file
+
+        git add hello.c
+
+    6. create the first version
+
+        git commit -a -m "my first version"   //-a跟踪所有修改-m修改信息，说明性内容，说明为什么修改等
+ 
+    7.Upload new commit to the repository
+
+         git remote add origin git@github.com:yanrr/xxx.git  //xxx为仓库名
+
+         git push -u origin master    //master是仓库的一部分
+
+    8.Update commit
+
+       每次修改完一个版本上传时只需重复执行6和7的第二步即可,每个文件或工程必须有自己私有的.git仓>库，否则github历史就会混乱
+# github
+
+       http://www.happypeter.org/posts/21   // github 操作的具体步骤
+
+      1.login my github in github website   //https://github.com
+ 
+      2.add SSH public keys
+
+        cd /home/akaedu
+
+        mv .ssh/ akaedu-ssh
+
+        ssh-keygen(一直enter)
+
+        cd .ssh(复制.ssh中的内容，注意不要复制空格)
+
+        在github网页中的SSH pubilc keys中add即可
+
+      3.creat new repository
+
+        Dashboard->Create A Repository
+
+      4.重复git basics中的7步(若已经有git跟踪的文件可不用执行本步骤)
+
+      5.rename repository
+
+        git remote add origin + 仓库链接
+
+      6.更新版本之后上传至仓库
+
+        git push -u origin master    //master is a part of repository
+
+      7.git config    git配置   //若是已经存在的仓库就不用执行这步
+
+        cd 要上传的文件
+
+        git config --global user.name "yanrr"
+
+        git config --global user.email 454814890@qq.com
+
+
+# tar
+
+http://www.happypeter.org/posts/10
+
+# ref
+
+http://happypeter.github.com/LGCB/
+
+http://billie66.github.com/TLCL/book/
+
+# my video
+
+http://media.happypeter.org/screencasts.html
+
+# some usefull sites
+
+http://www.linfo.org/
+
+http://www.wikipedia.org/
+
+http://news.ycombinator.com/news
+# tips
+
+   Clear screen : Ctrl-l
+
+   Copy and Paste: select -> middle button
+# multiple files               //在vim中打开多个文件
+
+    :ls #see buffers    	//可同时看到多个打开的文件
+    :bn # go to next buffer     //看下一个文件
+    :bp # go to previous buffer //看上一个文件
+    :bd # delete a buffer	//删除文件 
+#压缩命令：
+   1.tar.gz包： tar zcvf dir.tar.gz dir
+   2.tar.bz2包： tar jcvf dir.tar.bz2 dir
+#解压命令：
+   1.tar.gz包： tar zxvf dir.tar.gz
+   2.tar.bz2包： tar jxvf dir.tar.bz2
+
+#zip包解压：
+	unzip dir.zip (-d ~/.vim)  //括号里的内容就是将其解压到～中的.vim中
+
+#vim
+
+   .vimrc  //home下的创建本机的.vimrc，该文件是vim的配置文件
+   输入vim .vimrc  进入后输入”：set number“  //然后在vim中些东西时，换行可自动~
+   输入vim .vimrc  进入后输入“:set hidden"   //然后在vim中打开多个文件时，修改~
+
+
+#输入vim .gitconfig
+	 [user]
+        	name = yanrr
+        	email = 454814890@qq.com
+	 [core]
+      	 	editor = vim   //在git commit -a 时便于操作
+ 	 [alias]
+   		 ci = commit -a -v
+   		 co = checkout
+   		 st = status
+   		 br = branch
+    		 throw = reset --hard HEAD
+    		 thrown = reset --hard HEAD^
+	 [color]
+    		 ui = true
+
+	-[commit]
+      		 template = ./.commit-template
+
+# open another bash in vim
+
+     1.先保存文件即:w
+
+     2.open bash :sh
+
+     3.close bash = ctrl d
+
+     4.退出vim  :q
+
+     可在不关闭vim的情况下编译源程序，方便源程序的修改
+
+#clone others respository
+
+  1. git clone + chained address
+
+  2. git pull    //进入克隆的文件夹内，执行后可更新克隆的仓库
+  
+  3.tig  //View the latest update
+
+#the reason why .swap file appearing
+
+   1. open the same file twice sametime
+
+   2. close the file unusual
+

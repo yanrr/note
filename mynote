@@ -1,10 +1,13 @@
 # 可视行(visual line)
+
    1. 启动和退出: V
 
    2. 整体缩进/退回几行代码：
 
 	首先用可视行模式选中这几行,然后 `>/< + shift'
+
    3.安装vim插件的实质，就是将插件复制到～条件下的.vim中
+
 # markdown
 
     http://happypeter.github.com/LGCB/book/toy_markdown.html
@@ -29,7 +32,9 @@
 # html study    //html为网页制作环境
 
 http://www.w3schools.com/
+
 # git
+
   ## install:
 
     sudo apt-get install ‘git-core’
@@ -37,6 +42,7 @@ http://www.w3schools.com/
     sudo apt-get install ’tig‘  //View to renew the content
 
     git pull    //Update
+
   ##git basics
 
     1. first create a dir
@@ -119,40 +125,46 @@ http://www.w3schools.com/
 
 # tar
 
-http://www.happypeter.org/posts/10
+        http://www.happypeter.org/posts/10
 
 # ref
 
-http://happypeter.github.com/LGCB/
+        http://happypeter.github.com/LGCB/
 
-http://billie66.github.com/TLCL/book/
+        http://billie66.github.com/TLCL/book/
 
 # my video
 
-http://media.happypeter.org/screencasts.html
+        http://media.happypeter.org/screencasts.html
 
 # some usefull sites
 
-http://www.linfo.org/
+        http://www.linfo.org/
 
-http://www.wikipedia.org/
+	http://www.wikipedia.org/
 
-http://news.ycombinator.com/news
+	http://news.ycombinator.com/news
+
 # tips
 
    Clear screen : Ctrl-l
 
    Copy and Paste: select -> middle button
+
 # multiple files               //在vim中打开多个文件
 
     :ls #see buffers    	//可同时看到多个打开的文件
     :bn # go to next buffer     //看下一个文件
     :bp # go to previous buffer //看上一个文件
     :bd # delete a buffer	//删除文件 
+
 #压缩命令：
+
    1.tar.gz包： tar zcvf dir.tar.gz dir
    2.tar.bz2包： tar jcvf dir.tar.bz2 dir
+
 #解压命令：
+
    1.tar.gz包： tar zxvf dir.tar.gz
    2.tar.bz2包： tar jxvf dir.tar.bz2
 
@@ -182,7 +194,7 @@ http://news.ycombinator.com/news
 	 [color]
     		 ui = true
 
-	-[commit]
+	[commit]
       		 template = ./.commit-template
 
 # open another bash in vim

@@ -31,7 +31,7 @@
 
 # html study    //html为网页制作环境
 
-http://www.w3schools.com/
+    http://www.w3schools.com/
 
 # git
 
@@ -133,7 +133,7 @@ http://www.w3schools.com/
 
         http://billie66.github.com/TLCL/book/
 
-# my video
+#Video
 
         http://media.happypeter.org/screencasts.html
 
@@ -173,12 +173,21 @@ http://www.w3schools.com/
 
 #vim
 
-   .vimrc  //home下的创建本机的.vimrc，该文件是vim的配置文件
-   输入vim .vimrc  进入后输入”：set number“  //然后在vim中些东西时，换行可自动~
-   输入vim .vimrc  进入后输入“:set hidden"   //然后在vim中打开多个文件时，修改~
+    1.vimrc  //home下的创建本机的.vimrc，该文件是vim的配置文件
+    2.:set spell  //若有拼写错误会提示，但最好不要写进vimrc中，因为好多都是简写，也会报错
+    3.在vim中的普通模式下用‘：h ...’来寻求帮助
+    4.i + Ctrl+t / Ctrl+d  The insert mode, automatic downlink and uplink alignment 
+    5."将:set spell 映射为 ,ss  检查其拼写错误(非.c文件,c只查注释) <cr>表示回车
+          map ,ss :set spell<cr>
+    6.
+        :set number   //然后在vim中些东西时，换行可自动加上数字
+        :set hidden    //然后在vim中打开多个文件时，修改了但未保存，隐藏其提示信息
+        :set autoindent //自动缩进，即在普通模式下，摁o可直接进入插入模式，且与上下行对齐
+        :set expandtab  //Use Tab instead of space
+        :set tabstop=4
+        :set dictionary=/user/share/dict/words //Ctrl+x+f自动补全路径;Ctrl+x+k自动补全单词
 
-
-#输入vim .gitconfig
+#vim .gitconfig
 	 [user]
         	name = yanrr
         	email = 454814890@qq.com
@@ -189,8 +198,9 @@ http://www.w3schools.com/
    		 co = checkout
    		 st = status
    		 br = branch
-    		 throw = reset --hard HEAD
-    		 thrown = reset --hard HEAD^
+    		 throw = reset --hard HEAD     //Revoked the latest modification
+    		 thrown = reset --hard HEAD^   //Revoked the latest revision
+                git revert HEAD  //恢复到push之前的状态，其history依然存在
 	 [color]
     		 ui = true
 
@@ -222,4 +232,21 @@ http://www.w3schools.com/
    1. open the same file twice sametime
 
    2. close the file unusual
+#
+    .bashrc is the configation of bash.alias is used to rename command an so on
+    
+      eg: alias install='sudo apt-get install'
 
+#visit other user
+    在～下，输入ssh 用户名@IP地址inter，再输入密码，可进入该用户访问并操作，退出时Ctrl+d，下次登录就不必输入密码;   //eg:ssh peter@192.168.1.17
+    sudo service ssh stop；     //关闭访问
+    在～中输入sudo service ssh start，该机器可被别人访问；
+    要拷贝访问用户的内容时，输入scp -r 用户名@IP地址：文件路劲（需要拷贝的) dir（to...）  eg:scp -r peter@192.168.1.17:~/xxx .(.为本机地址)
+
+#C
+    http://tldp.org/HOWTO/Program-Library-HOWTO/
+
+#ctags
+    在代码比较庞大时，用其可快速找到函数的定义和调用
+    Ctrl+] from call to defination
+    Ctrl+t go back    Ctrl+o from defination to call

@@ -1,10 +1,56 @@
-# 可视行(visual line)
+#hen
+    xxx作用类似于tig，查找工程中的字符串并给出具体位置
+        1.git clone https://github.com/happypeter/hen.git
+        2.cd hen/search/curse:-1.sudo make install -2.make
+        3.The current directory have Makefile can follow
+        4.execute  eg:xxx times<cr>,摁e进入，退出时:q<cr>  //In a program in quickly find that the location of ”times“
+
+#some instructions
+    
+    gcc -o xxx xxx.c  -lcurses  //若没有-lcurses会报错，因为一般情况下，系统默认
+链接的是标准库,即-lc(libc),而xxx.c中包含的某些函数在libncurses中,所以必须要写
+
+    find dir|grep file  //In this directory for a file
+
+    ps aux | grep firefox   //查看firefox的运行行程，ps aux可查看当前所有运行的行程
+    kill 2003       //关闭正在运行的行程，2003为系统为其随机设定的唯一编号
+    kill -9 2003    //Compulsory closed, used for the trip to crash
+
+    sudo passwd akaedu  //Cipher amending directive
+    which ...    //Check the procedure of storage location,only instruction
+                   eg:which ls
+    locate ...   //ad:Quick search the entire system of matching files;
+                   disad:Can only see the existed before the matching of the file, on the same day the matching of the modified file does not show
+    sudo updatedb   //更新locate数据库
+
+#across
+    git checkout 891398d2f408241    //Modify the state before that (穿越)
+those number are the modified code
+
+    git chectout master             //restore  (返回)
+    
+    git checkout 891398d2f408241 name //Give the name of the state,So that the next time access convenient
+
+    git branch      //Check branch
+
+    git status      //Check the current state of branch
+
+    git chectout name   //Direct access to the state
+
+    git branch -D name  //delete the branch
+
+#Basic vim operation
+    ##
+    yy -- to copy current line
+    dd -- to cut the current line
+    p  -- to past
+    ##可视行(visual line)
 
    1. 启动和退出: V
 
    2. 整体缩进/退回几行代码：
 
-	首先用可视行模式选中这几行,然后 `>/< + shift'
+    	首先用可视行模式选中这几行,然后 `>/< + shift'
 
    3.安装vim插件的实质，就是将插件复制到～条件下的.vim中
 
@@ -16,7 +62,7 @@
 
       sudo apt-get install markdown
 
-    2.creat file
+    2.creat a file
 
       vim file.md  
 
@@ -24,7 +70,7 @@
 
       markdown file.md > file.html
 
-    4.open .html directory
+    4.open .html file
 
       firefox file.html
 
@@ -72,7 +118,8 @@
     6. create the first version
 
         git commit -a -m "my first version"   //-a跟踪所有修改-m修改信息，说明性内容，说明为什么修改等
- 
+        git commit -a -v        //-v表示在写修改原因的同时，也显示本次修改的内容
+
     7.Upload new commit to the repository
 
          git remote add origin git@github.com:yanrr/xxx.git  //xxx为仓库名
@@ -81,7 +128,7 @@
 
     8.Update commit
 
-       每次修改完一个版本上传时只需重复执行6和7的第二步即可,每个文件或工程必须有自己私有的.git仓>库，否则github历史就会混乱
+       每次修改完一个版本上传时只需重复执行6和7的第二步即可,每个文件或工程必须有自己私有的.git仓库，否则github历史就会混乱
 # github
 
        http://www.happypeter.org/posts/21   // github 操作的具体步骤
@@ -176,7 +223,7 @@
     1.vimrc  //home下的创建本机的.vimrc，该文件是vim的配置文件
     2.:set spell  //若有拼写错误会提示，但最好不要写进vimrc中，因为好多都是简写，也会报错
     3.在vim中的普通模式下用‘：h ...’来寻求帮助
-    4.i + Ctrl+t / Ctrl+d  The insert mode, automatic downlink and uplink alignment 
+    4.i + Ctrl+t / Ctrl+d  Insert mode, automatic downlink and uplink alignment 
     5."将:set spell 映射为 ,ss  检查其拼写错误(非.c文件,c只查注释) <cr>表示回车
           map ,ss :set spell<cr>
     6.
@@ -200,7 +247,7 @@
    		 br = branch
     		 throw = reset --hard HEAD     //Revoked the latest modification
     		 thrown = reset --hard HEAD^   //Revoked the latest revision
-                git revert HEAD  //恢复到push之前的状态，其history依然存在
+             revert = revert HEAD  //恢复到push之前的状态，其history依然存在
 	 [color]
     		 ui = true
 
@@ -238,15 +285,18 @@
       eg: alias install='sudo apt-get install'
 
 #visit other user
-    在～下，输入ssh 用户名@IP地址inter，再输入密码，可进入该用户访问并操作，退出时Ctrl+d，下次登录就不必输入密码;   //eg:ssh peter@192.168.1.17
+    
+    ifconfig    查看本机IP地址
+    ssh peter@192.168.1.17      //在～下，可进入该用户访问并操作，退出时Ctrl+d，下次登录就不必输入密码;  
     sudo service ssh stop；     //关闭访问
-    在～中输入sudo service ssh start，该机器可被别人访问；
-    要拷贝访问用户的内容时，输入scp -r 用户名@IP地址：文件路劲（需要拷贝的) dir（to...）  eg:scp -r peter@192.168.1.17:~/xxx .(.为本机地址)
+    sudo service ssh start      //在～下，该机器可被别人访问；
+    scp -r peter@192.168.1.17:~/xxx .   //(.为本机路径,cp to...)可拷贝访问用户的内容
 
 #C
     http://tldp.org/HOWTO/Program-Library-HOWTO/
 
 #ctags
     在代码比较庞大时，用其可快速找到函数的定义和调用
+    ctags ...   eg:ctags hello.c   //自动生成tags文件
     Ctrl+] from call to defination
     Ctrl+t go back    Ctrl+o from defination to call

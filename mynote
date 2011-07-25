@@ -1,5 +1,10 @@
+#
+    emacs功能类似于vim，且比其强大，但是
+    ect/apt/sources.list    //查看其下载路径
+    ect/apt$ dpkg -L tree   //查看tree的安装位置
+
 #hen
-    xxx作用类似于tig，查找工程中的字符串并给出具体位置
+    xxx 查找工程中的字符串并给出具体位置
         1.git clone https://github.com/happypeter/hen.git
         2.cd hen/search/curse:-1.sudo make install -2.make
         3.The current directory have Makefile can follow
@@ -9,6 +14,8 @@
     
     gcc -o xxx xxx.c  -lcurses  //若没有-lcurses会报错，因为一般情况下，系统默认
 链接的是标准库,即-lc(libc),而xxx.c中包含的某些函数在libncurses中,所以必须要写
+   
+    make 编译生成二进制文件file,再ldd file查看其函数链接库
 
     find dir|grep file  //In this directory for a file
 
@@ -21,38 +28,7 @@
                    eg:which ls
     locate ...   //ad:Quick search the entire system of matching files;
                    disad:Can only see the existed before the matching of the file, on the same day the matching of the modified file does not show
-    sudo updatedb   //更新locate数据库
-
-#across
-    git checkout 891398d2f408241    //Modify the state before that (穿越)
-those number are the modified code
-
-    git chectout master             //restore  (返回)
-    
-    git checkout 891398d2f408241 name //Give the name of the state,So that the next time access convenient
-
-    git branch      //Check branch
-
-    git status      //Check the current state of branch
-
-    git chectout name   //Direct access to the state
-
-    git branch -D name  //delete the branch
-
-#Basic vim operation
-    ##
-    yy -- to copy current line
-    dd -- to cut the current line
-    p  -- to past
-    ##可视行(visual line)
-
-   1. 启动和退出: V
-
-   2. 整体缩进/退回几行代码：
-
-    	首先用可视行模式选中这几行,然后 `>/< + shift'
-
-   3.安装vim插件的实质，就是将插件复制到～条件下的.vim中
+    sudo updatedb   //Update the locate datebase
 
 # markdown
 
@@ -60,7 +36,8 @@ those number are the modified code
 
     1.download and install markdown
 
-      sudo apt-get install markdown
+      sudo apt-get install markdown         (download)
+      sudo apt-get install purge markdown   (unload)
 
     2.creat a file
 
@@ -129,7 +106,25 @@ those number are the modified code
     8.Update commit
 
        每次修改完一个版本上传时只需重复执行6和7的第二步即可,每个文件或工程必须有自己私有的.git仓库，否则github历史就会混乱
-# github
+
+    ##across
+                git checkout 891398d2f408241    //Modify the state before that (穿越)those number are the modified code
+
+                git chectout master             //restore  (返回)
+
+                git checkout 891398d2f408241 -b name //Give the name of the state,So that the next time access convenient
+
+                git branch      //Check branch
+
+                git status      //Check the current state of branch
+
+                git chectout name   //Direct access to the state
+
+                git branch -D name  //delete the branch
+
+                git merge tmp   //若不小心忘了返回直接在tmp分支上作了修改，可直接把修改置于master上
+
+    ##github
 
        http://www.happypeter.org/posts/21   // github 操作的具体步骤
 
@@ -169,41 +164,11 @@ those number are the modified code
 
         git config --global user.email 454814890@qq.com
 
-
-# tar
-
-        http://www.happypeter.org/posts/10
-
-# ref
-
-        http://happypeter.github.com/LGCB/
-
-        http://billie66.github.com/TLCL/book/
-
-#Video
-
-        http://media.happypeter.org/screencasts.html
-
-# some usefull sites
-
-        http://www.linfo.org/
-
-	http://www.wikipedia.org/
-
-	http://news.ycombinator.com/news
-
 # tips
 
    Clear screen : Ctrl-l
 
    Copy and Paste: select -> middle button
-
-# multiple files               //在vim中打开多个文件
-
-    :ls #see buffers    	//可同时看到多个打开的文件
-    :bn # go to next buffer     //看下一个文件
-    :bp # go to previous buffer //看上一个文件
-    :bd # delete a buffer	//删除文件 
 
 #压缩命令：
 
@@ -219,22 +184,44 @@ those number are the modified code
 	unzip dir.zip (-d ~/.vim)  //括号里的内容就是将其解压到～中的.vim中
 
 #vim
+    
+    http://www.derekwyatt.org/vim/vim-tutorial-videos/vim-novice-tutorial-videos/
+    安装vim插件的实质，就是将插件复制到～条件下的.vim中
 
-    1.vimrc  //home下的创建本机的.vimrc，该文件是vim的配置文件
-    2.:set spell  //若有拼写错误会提示，但最好不要写进vimrc中，因为好多都是简写，也会报错
-    3.在vim中的普通模式下用‘：h ...’来寻求帮助
-    4.i + Ctrl+t / Ctrl+d  Insert mode, automatic downlink and uplink alignment 
-    5."将:set spell 映射为 ,ss  检查其拼写错误(非.c文件,c只查注释) <cr>表示回车
-          map ,ss :set spell<cr>
-    6.
-        :set number   //然后在vim中些东西时，换行可自动加上数字
-        :set hidden    //然后在vim中打开多个文件时，修改了但未保存，隐藏其提示信息
-        :set autoindent //自动缩进，即在普通模式下，摁o可直接进入插入模式，且与上下行对齐
-        :set expandtab  //Use Tab instead of space
-        :set tabstop=4
-        :set dictionary=/user/share/dict/words //Ctrl+x+f自动补全路径;Ctrl+x+k自动补全单词
+    ## multiple files               //在vim中打开多个文件
+        :ls #see buffers        //可同时看到多个打开的文件
+        :bn # go to next buffer     //看下一个文件
+        :bp # go to previous buffer //看上一个文件
+        :bd # delete a buffer   //删除文件 
+        :new file #横向打开一个vim
+        :vnew file #纵向打开一个vim
 
-#vim .gitconfig
+    ##Basic vim operation
+        ###
+          1.Normal mode
+            yy -- to copy current line
+            dd -- to cut the current line
+            p  -- to past
+            ：h ...   eg:':h vim'  //look for help
+          2.i + Ctrl+t / Ctrl+d  Insert mode, automatic downlink and uplink alignment 
+        ###visual line
+          1. 启动和退出: V      //v 可视块
+          2. 整体缩进/退回几行代码：
+                首先用可视行模式选中这几行,然后 `>/< + shift'
+
+        ### .vimrc  //home下的创建本机的.vimrc，该文件是vim的配置文件
+             1.:set spell  //若有拼写错误会提示，但最好不要写进vimrc中，因为好多都是简写，也会报错
+             2."将:set spell 映射为 ,ss  检查其拼写错误(非.c文件,c只查注释) <cr>表示回车
+                map ,ss :set spell<cr>
+             3.
+                :set number   //然后在vim中些东西时，换行可自动加上数字
+                :set hidden    //然后在vim中打开多个文件时，修改了但未保存，隐藏其提示信息
+                :set autoindent //自动缩进，即在普通模式下，摁o可直接进入插入模式，且与上下行对齐
+                :set expandtab  //Use Tab instead of space
+                :set tabstop=4
+                :set dictionary=/user/share/dict/words //Ctrl+x+f自动补全路径;Ctrl+x+k自动补全单词
+
+    ##vim .gitconfig
 	 [user]
         	name = yanrr
         	email = 454814890@qq.com
@@ -251,7 +238,7 @@ those number are the modified code
 	 [color]
     		 ui = true
 
-	[commit]
+	 [commit]
       		 template = ./.commit-template
 
 # open another bash in vim
@@ -272,14 +259,14 @@ those number are the modified code
 
   2. git pull    //进入克隆的文件夹内，执行后可更新克隆的仓库
   
-  3.tig  //View the latest update
+  3.tig  //Check the update   /gource can realize the function,beautiful and graphic
 
 #the reason why .swap file appearing
 
    1. open the same file twice sametime
 
    2. close the file unusual
-#
+#bashrc
     .bashrc is the configation of bash.alias is used to rename command an so on
     
       eg: alias install='sudo apt-get install'
@@ -292,11 +279,34 @@ those number are the modified code
     sudo service ssh start      //在～下，该机器可被别人访问；
     scp -r peter@192.168.1.17:~/xxx .   //(.为本机路径,cp to...)可拷贝访问用户的内容
 
-#C
-    http://tldp.org/HOWTO/Program-Library-HOWTO/
-
 #ctags
     在代码比较庞大时，用其可快速找到函数的定义和调用
     ctags ...   eg:ctags hello.c   //自动生成tags文件
     Ctrl+] from call to defination
     Ctrl+t go back    Ctrl+o from defination to call
+
+#C
+      http://tldp.org/HOWTO/Program-Library-HOWTO/
+
+# tar
+
+      http://www.happypeter.org/posts/10
+
+# ref
+
+      http://happypeter.github.com/LGCB/
+
+      http://billie66.github.com/TLCL/book/       /*/
+
+#Video
+
+      http://media.happypeter.org/screencasts.html
+
+# some usefull sites
+
+      http://www.linfo.org/
+
+      http://www.wikipedia.org/
+
+      http://news.ycombinator.com/news
+

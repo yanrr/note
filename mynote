@@ -1,10 +1,10 @@
 #
-    emacs功能类似于vim，且比其强大，但是
+    emacs功能类似于vim，且比其强大，但是内存比较大，而且打开就是插入模式的窗口，操作有些不便
     ect/apt/sources.list    //查看其下载路径
     ect/apt$ dpkg -L tree   //查看tree的安装位置
 
 #hen
-    xxx 查找工程中的字符串并给出具体位置
+     xxx     find a string in a project
         1.git clone https://github.com/happypeter/hen.git
         2.cd hen/search/curse:-1.sudo make install -2.make
         3.The current directory have Makefile can follow
@@ -15,9 +15,9 @@
     gcc -o xxx xxx.c  -lcurses  //若没有-lcurses会报错，因为一般情况下，系统默认
 链接的是标准库,即-lc(libc),而xxx.c中包含的某些函数在libncurses中,所以必须要写
    
-    make 编译生成二进制文件file,再ldd file查看其函数链接库
+    make 编译生成二进制文件file,再ldd file查看其函数链接库  //eg:ldd file
 
-    find dir|grep file  //In this directory for a file
+    find dir|grep file  //In this directory for a file  
 
     ps aux | grep firefox   //查看firefox的运行行程，ps aux可查看当前所有运行的行程
     kill 2003       //关闭正在运行的行程，2003为系统为其随机设定的唯一编号
@@ -51,10 +51,6 @@
 
       firefox file.html
 
-
-# html study    //html为网页制作环境
-
-    http://www.w3schools.com/
 
 # git
 
@@ -221,7 +217,7 @@
                 :set tabstop=4
                 :set dictionary=/user/share/dict/words //Ctrl+x+f自动补全路径;Ctrl+x+k自动补全单词
 
-    ##vim .gitconfig
+##vim .gitconfig
 	 [user]
         	name = yanrr
         	email = 454814890@qq.com
@@ -241,17 +237,17 @@
 	 [commit]
       		 template = ./.commit-template
 
-# open another bash in vim
+    ## open another bash in vim
 
-     1.先保存文件即:w
+         1.先保存文件即:w
 
-     2.open bash :sh
+         2.open bash :sh
 
-     3.close bash = ctrl d
+         3.close bash = ctrl d
 
-     4.退出vim  :q
+         4.退出vim  :q
 
-     可在不关闭vim的情况下编译源程序，方便源程序的修改
+       可在不关闭vim的情况下编译源程序，方便源程序的修改
 
 #clone others respository
 
@@ -280,6 +276,7 @@
     scp -r peter@192.168.1.17:~/xxx .   //(.为本机路径,cp to...)可拷贝访问用户的内容
 
 #ctags
+
     在代码比较庞大时，用其可快速找到函数的定义和调用
     ctags ...   eg:ctags hello.c   //自动生成tags文件
     Ctrl+] from call to defination
@@ -288,19 +285,23 @@
 #C
       http://tldp.org/HOWTO/Program-Library-HOWTO/
 
-# tar
+# html study    //html为网页制作环境
 
-      http://www.happypeter.org/posts/10
+      http://www.w3schools.com/
 
-# ref
+# Video
+
+      http://www.happypeter.org/posts
+
+      http://www.happypeter.org/posts/10    //tar
+
+      http://media.happypeter.org/screencasts.html
+
+#ref
 
       http://happypeter.github.com/LGCB/
 
       http://billie66.github.com/TLCL/book/       /*/
-
-#Video
-
-      http://media.happypeter.org/screencasts.html
 
 # some usefull sites
 
